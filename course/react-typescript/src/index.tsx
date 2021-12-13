@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { request } from "./server";
-import { TaskList } from "./components/TaskList";
-import { TaskForm } from "./components/TaskForm";
+import { TaskList } from "./components/organisms/TaskList";
+import { TaskForm } from "./components/organisms/TaskForm";
+import Header from "./components/molecules/Header";
 
 // TODOタスクの型
 export type Task = { label: string; isDone: boolean };
@@ -22,8 +23,7 @@ const App: React.VFC = () => {
   return (
     <div style={{ width: "700px", margin: "0 auto" }}>
       {/* ヘッダー */}
-      <h1>React Todo List</h1>
-      <h2>React Todo List</h2>
+      <Header />
 
       {/* 一覧表示 */}
       <TaskList {...{ tasks, setTasks }} />
