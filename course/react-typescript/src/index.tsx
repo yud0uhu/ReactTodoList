@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { request } from "./server";
-import { TaskList } from "./components/organisms/TaskList";
-import { TaskForm } from "./components/organisms/TaskForm";
+import { TaskList } from "./components/molecules/TaskList";
+import { TaskForm } from "./components/molecules/TaskForm";
 import Header from "./components/molecules/Header";
 
 // TODOタスクの型

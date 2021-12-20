@@ -7,6 +7,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Box from "@mui/material/Box";
 import FormHelperText from "@mui/material/FormHelperText";
 import AddIcon from "@mui/icons-material/Add";
+import TaskFormInput from "../atoms/TaskFormInput";
 
 type Props = {
   tasks: Task[];
@@ -21,11 +22,6 @@ export const TaskForm: React.FC<Props> = ({
   newTaskLabel,
   setNewTaskLabel,
 }) => {
-  // フォームの値を保持する
-  const handleNewTaskLabel = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewTaskLabel(e.target.value);
-  };
-
   // Taskの登録
   const handleAddTask = () => {
     const newTask = { label: newTaskLabel, isDone: false };
@@ -57,14 +53,9 @@ export const TaskForm: React.FC<Props> = ({
     <>
       <Box component="form" noValidate autoComplete="off">
         <FormControl sx={{ width: "25ch" }}>
-          <OutlinedInput
-            placeholder="Enter the task"
-            fullWidth
-            label="fullWidth"
-            id="fullWidth"
-            onChange={handleNewTaskLabel}
-            type="text"
-            value={newTaskLabel}
+          <TaskFormInput
+            setNewTaskLabel={setNewTaskLabel}
+            newTaskLabel={newTaskLabel}
           />
           <MyFormHelperText />
         </FormControl>
